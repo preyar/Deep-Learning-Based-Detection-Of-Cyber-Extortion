@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #808080; /* Gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            background: radial-gradient(circle, rgba(29,27,28,1) 0%, rgba(136,134,135,1) 0%, rgba(25,26,27,0.9529061624649859) 100%);
+        }
+
+        .container.hide {
+            display: none;
+        }
+
+        .container.toxic {
+            background: linear-gradient(to right, #e53935, #c62828);
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            color: #fff;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .transcribed-text {
+            color: #ffd700;
+        }
+
+        .prediction {
+            color: #ff6347;
+            font-weight: bold;
+        }
+
+        .toxic-text {
+            color: #ff6347;
+            font-weight: bold;
+        }
+
+        a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="result-container" class="container">
+        <h1>Result</h1>
+        <p>Transcribed Text: <span class="transcribed-text">{{ transcribed_text }}</span></p>
+
+        {% if prediction > 0.5 %}
+            <p class="prediction">Toxicity Prediction: Potential blackmail detected!</p>
+            <p class="toxic-text">This audio may contain blackmail content. Please take necessary actions to address this issue.</p>
+            <p>Related Cyber Crime Link: <a href="https://cybercrime.gov.in/">Cybercrime Information</a></p>
+
+        {% else %}
+            <p class="prediction">Toxicity Prediction: No blackmail detected.</p>
+            <p>This audio is not considered toxic.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>audioshield</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Use a modern and clean font */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #808080; /* Gray background */
+            transition: background-color 0.5s ease; /* Transition effect for background color */
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background: radial-gradient(circle, rgba(29,27,28,1) 0%, rgba(136,134,135,1) 0%, rgba(25,26,27,0.9529061624649859) 100%);
+            /* Semi-transparent white background */
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(114, 42, 42, 0.1); /* Subtle box shadow */
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff; /* White text color */
+            font-size: 42px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Text shadow */
+        }
+
+        p {
+            color: #ddd; /* Light grey text color */
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.6; /* Increased line-height for better readability */
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #191a1b;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Transition effect for button background color */
+        }
+
+        button:hover {
+            background-color: #888687;
+        }
+
+        /* Progress bar styles */
+        .progress-container {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 20px;
+            background-color: #808080;
+            border-radius: 4px;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            transition: width 0.3s ease; /* Smooth transition effect */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to AudioShield</h1>
+        <p>This is a platform to upload and analyze audio files.</p>
+        <form id="uploadForm" method="post" enctype="multipart/form-data" action="/predict">
+            <input type="file" name="audio_file" accept=".wav">
+            <br>
+            <button id="uploadButton" type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
